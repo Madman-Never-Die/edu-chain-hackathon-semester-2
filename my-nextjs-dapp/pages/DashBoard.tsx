@@ -13,7 +13,7 @@ const Dashboard: FC = () => {
           <NavLink>Audiences</NavLink>
           <NavLink>Analytics</NavLink>
           <ProfileIcon>
-            <Image src="/profile-icon.png" alt="Profile" />
+            <Image width={40} height={40} src="/index1.png" alt="Profile" />
           </ProfileIcon>
         </NavLinks>
       </Navbar>
