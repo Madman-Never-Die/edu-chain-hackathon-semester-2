@@ -2,9 +2,11 @@ import styled from "styled-components";
 import { FC } from "react";
 import { useRouter } from "next/router"; // useRouter 추가
 import Image from "next/image";
+import { useOCAuth } from "@opencampus/ocid-connect-js";
 
 const ConnectWallet: FC = () => {
   const router = useRouter();
+  const { ocAuth } = useOCAuth();
 
   const handleCreateAdClick = () => {
     router.push("/connect-wallet"); // "/connect-wallet"으로 이동
@@ -12,6 +14,14 @@ const ConnectWallet: FC = () => {
 
   const handleConnectWallet = () => {
     router.push("/stake"); // "/stake"로 이동
+  };
+
+  const handleLogin = async () => {
+    try {
+      await ocAuth.signInWithRedirect({ state: "opencampus" });
+    } catch (error) {
+      console.error("Login error:", error);
+    }
   };
 
   return (
@@ -42,7 +52,8 @@ const ConnectWallet: FC = () => {
           the AdGenie marketplace, and you can track impressions, clicks, and
           conversions in real time.
         </Description>
-        <Button onClick={handleConnectWallet}>Connect Wallet</Button>
+        {/*<Button onClick={handleConnectWallet}>Connect Wallet</Button>*/}
+        <Button onClick={handleLogin}>Connect Wallet</Button>
         <FooterLinks>
           <FooterLink href="#">Don&apos;t have a wallet?</FooterLink>
           <FooterLink href="#">Learn more about AdGenie</FooterLink>

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { FC } from "react";
 import { useRouter } from "next/router"; // useRouter 추가
+import LoginButton from "../components/LoginButton";
+
 
 const Home: FC = () => {
   const router = useRouter();
