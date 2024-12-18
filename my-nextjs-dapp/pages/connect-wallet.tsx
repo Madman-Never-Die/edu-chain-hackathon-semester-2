@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FC } from "react";
 import { useRouter } from "next/router"; // useRouter 추가
+import Image from "next/image";
 
 const ConnectWallet: FC = () => {
   const router = useRouter();
@@ -24,7 +25,12 @@ const ConnectWallet: FC = () => {
             Create Ad
           </CreateAdButton>
           <ProfileIcon>
-            <img src="/profile-icon.png" alt="Profile" />
+            <Image
+              src="/profile-icon.png"
+              alt="Profile"
+              width={40}
+              height={40}
+            />
           </ProfileIcon>
         </NavLinks>
       </Navbar>
@@ -38,7 +44,7 @@ const ConnectWallet: FC = () => {
         </Description>
         <Button onClick={handleConnectWallet}>Connect Wallet</Button>
         <FooterLinks>
-          <FooterLink href="#">Don't have a wallet?</FooterLink>
+          <FooterLink href="#">Don&apos;t have a wallet?</FooterLink>
           <FooterLink href="#">Learn more about AdGenie</FooterLink>
         </FooterLinks>
       </Content>
@@ -105,12 +111,6 @@ const ProfileIcon = styled.div`
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 `;
 
 const Content = styled.div`

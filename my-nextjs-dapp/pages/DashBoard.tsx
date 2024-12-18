@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FC } from "react";
+import Image from "next/image";
 
 const Dashboard: FC = () => {
   return (
@@ -12,7 +13,7 @@ const Dashboard: FC = () => {
           <NavLink>Audiences</NavLink>
           <NavLink>Analytics</NavLink>
           <ProfileIcon>
-            <img src="/profile-icon.png" alt="Profile" />
+            <Image src="/profile-icon.png" alt="Profile" />
           </ProfileIcon>
         </NavLinks>
       </Navbar>
@@ -163,7 +164,7 @@ const ProfileIcon = styled.div`
   border-radius: 50%;
   overflow: hidden;
 
-  img {
+  Image {
     width: 100%;
     height: 100%;
     object-fit: cover;

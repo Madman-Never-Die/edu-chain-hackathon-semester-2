@@ -26,8 +26,8 @@ const CreateAd: FC = () => {
         <Title>Create an Ad</Title>
         <Description>
           Advertising is a great way to get your project in front of the right
-          people. We'll help you create a beautiful ad that will appear on our
-          website.
+          people. We&apos;ll help you create a beautiful ad that will appear on
+          our website.
         </Description>
         <Form>
           <InputField>
