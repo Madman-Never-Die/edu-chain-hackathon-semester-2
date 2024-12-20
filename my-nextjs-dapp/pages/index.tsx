@@ -1,21 +1,23 @@
+import Head from "next/head";
 import styled from "styled-components";
 import { FC } from "react";
-import { useRouter } from "next/router"; // useRouter 추가
-import LoginButton from "../components/LoginButton";
-
+import { useRouter } from "next/router";
 
 const Home: FC = () => {
   const router = useRouter();
 
   const handleCreateAdClick = () => {
-    router.push("/connect-wallet"); // "/connect-wallet"으로 이동
+    router.push("/main");
   };
 
   return (
     <Container>
-      {/* Navbar */}
+      <Head>
+        <title>A² Finance</title>
+      </Head>
+
       <Navbar>
-        <Logo>A2 Finance</Logo>
+        <Logo>A² Finance</Logo>
         <NavLinks>
           <NavLink>Analytics</NavLink>
           <NavLink>Help</NavLink>
@@ -25,20 +27,33 @@ const Home: FC = () => {
         </NavLinks>
       </Navbar>
 
-      {/* Tabs */}
-      <Tabs>
+      <HeroSection>
+        <HeroText>
+          <h1>Advertise Smarter, Reach Wider</h1>
+          <p>
+            Simplify your ad campaigns with A² Finance. Build, launch, and
+            manage ads effortlessly with results-driven solutions.
+          </p>
+          {/* <HeroButtons>
+            <ButtonPrimary onClick={handleCreateAdClick}>
+              Get Started
+            </ButtonPrimary>
+            <ButtonSecondary>Learn More</ButtonSecondary>
+          </HeroButtons> */}
+        </HeroText>
+        {/* <HeroImage src="/hero-image.png" alt="Hero" /> */}
+      </HeroSection>
+
+      {/* <Tabs>
         <Tab>Advertiser</Tab>
         <Tab>Publisher</Tab>
-      </Tabs>
+      </Tabs> */}
 
-      {/* Content */}
       <Content>
-        {/* Background Image Section */}
         <BackgroundImage>
-          <OverlayText>Reach your audience on the web</OverlayText>
+          <OverlayText>Maximize Your Reach with A²</OverlayText>
         </BackgroundImage>
 
-        {/* Create Ad Section */}
         <AdSection>
           <AdImage src="/index1.png" alt="Create Ad" />
           <AdText>
@@ -50,14 +65,30 @@ const Home: FC = () => {
           </GetStartedButton>
         </AdSection>
       </Content>
+
+      <Footer>
+        <FooterContent>
+          <p>
+            © 2024 A² Finance. Powered by
+            <a
+              href="https://madmanneverdie"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              madmanneverdie
+            </a>
+            .
+          </p>
+        </FooterContent>
+      </Footer>
     </Container>
   );
 };
 
 /** Styled Components */
 const Container = styled.div`
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #e0e0e0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -67,13 +98,18 @@ const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #333;
+  padding: 20px 50px;
+  background: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 `;
 
 const Logo = styled.h1`
   font-size: 24px;
   font-weight: bold;
+  color: #7b44ff;
 `;
 
 const NavLinks = styled.div`
@@ -85,48 +121,110 @@ const NavLinks = styled.div`
 const NavLink = styled.button`
   background: none;
   border: none;
-  color: white;
+  color: #b3b3b3;
   font-size: 16px;
   cursor: pointer;
 
   &:hover {
-    text-decoration: underline;
+    color: #7b44ff;
   }
 `;
 
 const CreateAdButton = styled.button`
-  background-color: blue;
-  color: white;
+  background-color: #7b44ff;
+  color: #fff;
   border: none;
   border-radius: 20px;
   padding: 10px 20px;
-  cursor: pointer;
   font-size: 16px;
-  margin-left: 20px;
+  cursor: pointer;
 
   &:hover {
-    background-color: darkblue;
+    background-color: #531fbd;
   }
+`;
+
+const HeroSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: #1e1e1e;
+`;
+
+const HeroText = styled.div`
+  max-width: 50%;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #b3b3b3;
+    margin-top: 10px;
+  }
+`;
+
+const HeroButtons = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+`;
+
+const ButtonPrimary = styled.button`
+  background-color: #7b44ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #531fbd;
+  }
+`;
+
+const ButtonSecondary = styled.button`
+  background-color: transparent;
+  color: #7b44ff;
+  border: 2px solid #7b44ff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #7b44ff;
+    color: white;
+  }
+`;
+
+const HeroImage = styled.img`
+  max-width: 40%;
+  border-radius: 10px;
 `;
 
 const Tabs = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 20px;
   padding: 20px;
-  padding-left: 30px;
+  background: #1e1e1e;
 `;
 
 const Tab = styled.div`
   background-color: #333;
-  color: gray;
+  color: #b3b3b3;
   padding: 10px 20px;
   border-radius: 20px;
   cursor: pointer;
 
   &:hover {
     color: white;
-    background-color: blue;
+    background-color: #7b44ff;
   }
 `;
 
@@ -149,19 +247,16 @@ const BackgroundImage = styled.div`
   border-radius: 10px;
   margin-bottom: 20px;
   display: flex;
-  align-items: flex-end; /* 텍스트를 아래쪽에 위치 */
+  align-items: flex-end;
   justify-content: center;
   padding: 20px;
 `;
 
 const OverlayText = styled.h2`
-  position: relative;
   font-size: 28px;
   font-weight: bold;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  text-align: center;
-  z-index: 1; /* 텍스트가 위에 나타나도록 설정 */
 `;
 
 const AdSection = styled.div`
@@ -188,12 +283,11 @@ const AdImage = styled.img`
 
 const AdText = styled.p`
   font-size: 16px;
-  color: lightgray;
-  margin: 0;
+  color: #e0e0e0;
 `;
 
 const GetStartedButton = styled.button`
-  background-color: blue;
+  background-color: #7b44ff;
   color: white;
   border: none;
   border-radius: 20px;
@@ -202,7 +296,27 @@ const GetStartedButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: darkblue;
+    background-color: #531fbd;
+  }
+`;
+
+const Footer = styled.footer`
+  background-color: #1e1e1e;
+  color: #b3b3b3;
+  padding: 20px;
+  text-align: center;
+`;
+
+const FooterContent = styled.div`
+  font-size: 14px;
+
+  a {
+    color: #7b44ff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
