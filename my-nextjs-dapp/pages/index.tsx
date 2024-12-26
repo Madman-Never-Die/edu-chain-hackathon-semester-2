@@ -1,8 +1,9 @@
 import Head from "next/head";
 import styled from "styled-components";
-import { FC } from "react";
+import React, { FC } from "react";
 import { useRouter } from "next/router";
 import ImageSlider from "../components/ImageSlider";
+import Card from "../components/Card";
 
 const Home: FC = () => {
   const router = useRouter();
@@ -59,26 +60,51 @@ const Home: FC = () => {
           <ImageSlider/>
         </div>
 
-        <AdSection>
-          <AdImage src="/index1.png" alt="Create Ad"/>
-          <AdText>
-            Create an ad. Set up your campaign in minutes. Pay for results, not
-            clicks.
-          </AdText>
-          <GetStartedButton onClick={handleCreateAdClick}>
-            Get Started
-          </GetStartedButton>
-        </AdSection>
+        {/*<AdSection>*/}
+        {/*  <AdImage src="/index1.png" alt="Create Ad"/>*/}
+        {/*  <AdText>*/}
+        {/*    Create an ad. Set up your campaign in minutes. Pay for results, not*/}
+        {/*    clicks.*/}
+        {/*  </AdText>*/}
+        {/*  <GetStartedButton onClick={handleCreateAdClick}>*/}
+        {/*    Get Started*/}
+        {/*  </GetStartedButton>*/}
+        {/*</AdSection>*/}
+
+        <div style={{display:"flex", flexDirection: "column", width: "1000px"}}>
+          <div style={{display: "flex", flexDirection: "row"}}>
+            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
+                  onButtonClick={() => {
+                  }}/>
+            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
+                  onButtonClick={() => {
+                  }}/>
+            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
+                  onButtonClick={() => {
+                  }}/>
+          </div>
+          <div style={{display: "flex", flexDirection: "row"}}>
+            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
+                  onButtonClick={() => {
+                  }}/>
+            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
+                  onButtonClick={() => {
+                  }}/>
+            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
+                  onButtonClick={() => {
+                  }}/>
+          </div>
+        </div>
       </Content>
 
       <Footer>
-        <FooterContent>
+      <FooterContent>
           <p>
             © 2024 A² Finance. Powered by
             <a
-              href="https://madmanneverdie"
-              target="_blank"
-              rel="noopener noreferrer"
+                href="https://madmanneverdie"
+                target="_blank"
+                rel="noopener noreferrer"
             >
               madmanneverdie
             </a>
