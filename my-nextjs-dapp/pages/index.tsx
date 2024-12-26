@@ -2,6 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import { FC } from "react";
 import { useRouter } from "next/router";
+import ImageSlider from "../components/ImageSlider";
 
 const Home: FC = () => {
   const router = useRouter();
@@ -50,12 +51,16 @@ const Home: FC = () => {
       </Tabs> */}
 
       <Content>
-        <BackgroundImage>
-          <OverlayText>Maximize Your Reach with A²</OverlayText>
-        </BackgroundImage>
+        {/*<BackgroundImage>*/}
+        {/*  <OverlayText>Maximize Your Reach with A²</OverlayText>*/}
+        {/*</BackgroundImage>*/}
+        <div>
+          <h1 style={{textAlign: 'center'}}>Welcome to the Slider</h1>
+          <ImageSlider/>
+        </div>
 
         <AdSection>
-          <AdImage src="/index1.png" alt="Create Ad" />
+          <AdImage src="/index1.png" alt="Create Ad"/>
           <AdText>
             Create an ad. Set up your campaign in minutes. Pay for results, not
             clicks.
