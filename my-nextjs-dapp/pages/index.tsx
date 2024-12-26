@@ -7,7 +7,7 @@ const Home: FC = () => {
   const router = useRouter();
 
   const handleCreateAdClick = () => {
-    router.push("/main");
+    router.push("/MyDashBoard");
   };
 
   return (
