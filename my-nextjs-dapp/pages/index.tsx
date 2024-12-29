@@ -1,354 +1,195 @@
-import Head from "next/head";
 import styled from "styled-components";
-import React, { FC } from "react";
 import { useRouter } from "next/router";
-import ImageSlider from "../components/ImageSlider";
-import Card from "../components/Card";
+import MainHeader from "../components/MainHeader";
 
-const Home: FC = () => {
-  const router = useRouter();
+// Add this interface above the ImageSection styled component
+interface ImageSectionProps {
+  background?: string;
+}
 
-  const handleCreateAdClick = () => {
-    router.push("/MyDashBoard");
-  };
-
-  return (
-    <Container>
-      <Head>
-        <title>A² Finance</title>
-      </Head>
-
-      <Navbar>
-        <Logo>A² Finance</Logo>
-        <NavLinks>
-          <NavLink>Analytics</NavLink>
-          <NavLink>Help</NavLink>
-          <CreateAdButton onClick={handleCreateAdClick}>
-            Create Ad
-          </CreateAdButton>
-        </NavLinks>
-      </Navbar>
-
-      <HeroSection>
-        <HeroText>
-          <h1>Advertise Smarter, Reach Wider</h1>
-          <p>
-            Simplify your ad campaigns with A² Finance. Build, launch, and
-            manage ads effortlessly with results-driven solutions.
-          </p>
-          {/* <HeroButtons>
-            <ButtonPrimary onClick={handleCreateAdClick}>
-              Get Started
-            </ButtonPrimary>
-            <ButtonSecondary>Learn More</ButtonSecondary>
-          </HeroButtons> */}
-        </HeroText>
-        {/* <HeroImage src="/hero-image.png" alt="Hero" /> */}
-      </HeroSection>
-
-      {/* <Tabs>
-        <Tab>Advertiser</Tab>
-        <Tab>Publisher</Tab>
-      </Tabs> */}
-
-      <Content>
-        {/*<BackgroundImage>*/}
-        {/*  <OverlayText>Maximize Your Reach with A²</OverlayText>*/}
-        {/*</BackgroundImage>*/}
-        <div>
-          <h1 style={{textAlign: 'center'}}>Welcome to the Slider</h1>
-          <ImageSlider/>
-        </div>
-
-        {/*<AdSection>*/}
-        {/*  <AdImage src="/index1.png" alt="Create Ad"/>*/}
-        {/*  <AdText>*/}
-        {/*    Create an ad. Set up your campaign in minutes. Pay for results, not*/}
-        {/*    clicks.*/}
-        {/*  </AdText>*/}
-        {/*  <GetStartedButton onClick={handleCreateAdClick}>*/}
-        {/*    Get Started*/}
-        {/*  </GetStartedButton>*/}
-        {/*</AdSection>*/}
-
-        <div style={{display:"flex", flexDirection: "column", width: "1000px"}}>
-          <div style={{display: "flex", flexDirection: "row"}}>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
-          </div>
-          <div style={{display: "flex", flexDirection: "row"}}>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
-          </div>
-        </div>
-      </Content>
-
-      <Footer>
-      <FooterContent>
-          <p>
-            © 2024 A² Finance. Powered by
-            <a
-                href="https://madmanneverdie"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-              madmanneverdie
-            </a>
-            .
-          </p>
-        </FooterContent>
-      </Footer>
-    </Container>
-  );
-};
-
-/** Styled Components */
 const Container = styled.div`
-  background-color: #000;
-  color: #e0e0e0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
 `;
 
-const Navbar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 50px;
-  background: #ffffff;
-  border-bottom: 1px solid #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-`;
-
-const Logo = styled.h1`
-  font-size: 24px;
-  font-weight: bold;
-  color: #7b44ff;
-`;
-
-const NavLinks = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-`;
-
-const NavLink = styled.button`
-  background: none;
-  border: none;
-  color: #b3b3b3;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    color: #7b44ff;
-  }
-`;
-
-const CreateAdButton = styled.button`
-  background-color: #7b44ff;
+const HeroSection = styled.section`
+  text-align: center;
+  padding: 100px 20px;
+  background: url("/hero-background.jpg") no-repeat center center / cover;
   color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #531fbd;
-  }
-`;
-
-const HeroSection = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 50px;
-  background-color: #1e1e1e;
-`;
-
-const HeroText = styled.div`
-  max-width: 50%;
 
   h1 {
-    font-size: 2.5rem;
-    color: #ffffff;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
   }
 
   p {
     font-size: 1.2rem;
-    color: #b3b3b3;
-    margin-top: 10px;
+    margin-bottom: 40px;
   }
-`;
 
-const HeroButtons = styled.div`
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-`;
-
-const ButtonPrimary = styled.button`
-  background-color: #7b44ff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #531fbd;
-  }
-`;
-
-const ButtonSecondary = styled.button`
-  background-color: transparent;
-  color: #7b44ff;
-  border: 2px solid #7b44ff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #7b44ff;
-    color: white;
-  }
-`;
-
-const HeroImage = styled.img`
-  max-width: 40%;
-  border-radius: 10px;
-`;
-
-const Tabs = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  background: #1e1e1e;
-`;
-
-const Tab = styled.div`
-  background-color: #333;
-  color: #b3b3b3;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-
-  &:hover {
-    color: white;
-    background-color: #7b44ff;
-  }
-`;
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  padding: 20px;
-`;
-
-const BackgroundImage = styled.div`
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  height: 400px;
-  background-image: url("/index2.png");
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 20px;
-`;
-
-const OverlayText = styled.h2`
-  font-size: 28px;
-  font-weight: bold;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-`;
-
-const AdSection = styled.div`
-  background-color: #222;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-`;
-
-const AdImage = styled.img`
-  width: 100%;
-  height: auto;
-  max-height: 250px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-`;
-
-const AdText = styled.p`
-  font-size: 16px;
-  color: #e0e0e0;
-`;
-
-const GetStartedButton = styled.button`
-  background-color: #7b44ff;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #531fbd;
-  }
-`;
-
-const Footer = styled.footer`
-  background-color: #1e1e1e;
-  color: #b3b3b3;
-  padding: 20px;
-  text-align: center;
-`;
-
-const FooterContent = styled.div`
-  font-size: 14px;
-
-  a {
-    color: #7b44ff;
-    text-decoration: none;
+  button {
+    margin: 0 10px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background: #7b44ff;
 
     &:hover {
-      text-decoration: underline;
+      background: #531fbd;
+    }
+  }
+
+  button.secondary {
+    background: transparent;
+    border: 2px solid #fff;
+
+    &:hover {
+      background: #fff;
+      color: #7b44ff;
     }
   }
 `;
 
-export default Home;
+const Section = styled.section`
+  padding: 80px 50px;
+  text-align: center;
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  button {
+    padding: 15px 30px;
+    font-size: 1rem;
+    background: #7b44ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+
+    &:hover {
+      background: #531fbd;
+    }
+  }
+`;
+
+const ImageSection = styled.div<ImageSectionProps>`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px;
+  background: ${({ background }) => background || "#f9f9f9"};
+
+  img {
+    max-width: 50%;
+    height: auto;
+  }
+
+  .text {
+    max-width: 40%;
+    text-align: left;
+  }
+
+  .text h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+`;
+
+const Footer = styled.footer`
+  text-align: center;
+  padding: 50px;
+  background: #7b44ff;
+  color: #fff;
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+
+    &:hover {
+      color: #ccc;
+    }
+  }
+`;
+
+export default function Home() {
+  const router = useRouter();
+
+  const handleButtonClick = () => {
+    // 원하는 경로로 이동
+    router.push('/Main');
+  };
+
+  return (
+    <Container>
+      {/* Hero Section */}
+      <HeroSection>
+        <h1>The First Advertising Blockchain Network</h1>
+        <p>
+          A² is a Advertising network that makes it easy for anyone to easely
+          advertise their own blockchain.
+        </p>
+        <div>
+          <button>Build A²</button>
+          <button className="secondary" onClick={handleButtonClick}>Explore</button>
+        </div>
+      </HeroSection>
+
+      {/* Features Section */}
+      <Section id="features">
+        <h2>Features</h2>
+        <p>
+          Build liquidity, advertise, and earn blockchain applications with A².
+        </p>
+        <button>Learn More</button>
+      </Section>
+
+      {/* Image Sections */}
+      <ImageSection background="#3a3636">
+        <div className="text">
+          <h3>Build Whatever</h3>
+          <p>Launch a blockchain your own Advertise chain.</p>
+        </div>
+        <img src="/arbitrum.jpg" alt="Feature Image 1" />
+      </ImageSection>
+
+      <ImageSection background="#3a3636">
+        <img src="/opencampus.png" alt="Feature Image 2" />
+        <div className="text">
+          <h3>Access</h3>
+          <p>Tap to Advertising your own protocol and earn token.</p>
+        </div>
+      </ImageSection>
+
+      {/* Footer */}
+      <Footer>
+        <p>
+          © 2024 madmanneverdie. Powered by{" "}
+          <a href="madmanneverdie" target="_blank" rel="noopener noreferrer">
+            madmanneverdie
+          </a>
+          .
+        </p>
+      </Footer>
+    </Container>
+  );
+}

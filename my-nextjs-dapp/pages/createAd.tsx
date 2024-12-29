@@ -7,21 +7,12 @@ const CreateAd: FC = () => {
 
   const handleNextClick = () => {
     // "Next" 버튼 클릭 시 Dashboard 페이지로 이동
-    router.push("/DashBoard");
+    router.push("/stake");
   };
 
   return (
     <Container>
-      <Navbar>
-        <Logo>A²</Logo>
-        <NavLinks>
-          <NavLink>Home</NavLink>
-          <NavLink>Browse</NavLink>
-          <NavLink>Create</NavLink>
-          <NavLink>Activity</NavLink>
-          <ConnectWalletButton>Connect Wallet</ConnectWalletButton>
-        </NavLinks>
-      </Navbar>
+
       <Content>
         <Title>Create an Ad</Title>
         <Description>
@@ -66,49 +57,8 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const Navbar = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #333;
-`;
 
-const Logo = styled.h1`
-  font-size: 24px;
-  font-weight: bold;
-`;
 
-const NavLinks = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-`;
-
-const NavLink = styled.a`
-  color: white;
-  font-size: 16px;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const ConnectWalletButton = styled.button`
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
 
 const Content = styled.div`
   display: flex;

@@ -2,19 +2,15 @@ import { ReactNode } from "react";
 import { OCConnect } from "@opencampus/ocid-connect-js";
 
 interface OCConnectWrapperProps {
-  children: ReactNode;
   opts: {
     redirectUri: string;
     referralCode: string;
   };
-  sandboxMode: boolean;
+  sandboxMode?: boolean;
+  children: ReactNode;
 }
 
-const OCConnectWrapper: React.FC<OCConnectWrapperProps> = ({
-                                                             children,
-                                                             opts,
-                                                             sandboxMode,
-                                                           }) => {
+const OCConnectWrapper: React.FC<OCConnectWrapperProps> = ({ opts, sandboxMode = false, children }) => {
   return (
       <OCConnect opts={opts} sandboxMode={sandboxMode}>
         {children}
