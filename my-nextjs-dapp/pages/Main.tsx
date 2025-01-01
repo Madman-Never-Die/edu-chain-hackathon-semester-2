@@ -6,7 +6,18 @@ import ImageSlider from "../components/ImageSlider";
 import Card from "../components/Card";
 
 const MainPage: FC = () => {
+  const router = useRouter()
 
+  const handleButtonClick = (coinData: { title: string, image: string, description: string }) => {
+    router.push({
+      pathname: '/detail',
+      query: {
+        title: coinData.title,
+        image: coinData.image,
+        description: coinData.description
+      }
+    });
+  };
 
   return (
     <Container>
@@ -56,26 +67,30 @@ const MainPage: FC = () => {
 
         <div style={{display:"flex", flexDirection: "column", width: "1000px"}}>
           <div style={{display: "flex", flexDirection: "row"}}>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
+            <Card image={"/bitcoin.png"} title={"BTC"} description={"Bitcoin is a decentralized cryptocurrency originally described in a 2008 whitepaper by a person, or group of people, using the alias Satoshi Nakamoto. It was launched soon after, in January 2009."} buttonText={"button"}
+                  onButtonClick={() => handleButtonClick({ title: "BTC", image: "/bitcoin.png", description: "Bitcoin description" })}/>
+
+            <Card image={"/ethereum.png"} title={"ETH"} description={"Ethereum is a decentralized open-source blockchain system that features its own cryptocurrency, Ether. ETH works as a platform for numerous other cryptocurrencies, as well as for the execution of decentralized smart contracts."} buttonText={"button"}
+                  onButtonClick={() => handleButtonClick({ title: "ETH", image: "/ethereum.png", description: "Ethereum description" })}
+            />
+            <Card image={"/solana.png"} title={"SOL"} description={"Solana is a highly functional open source project that banks on blockchain technology’s permissionless nature to provide decentralized finance (DeFi) solutions. While the idea and initial work on the project began in 2017, Solana was officially launched in March 2020 by the Solana Foundation with headquarters in Geneva, Switzerland."} buttonText={"button"}
+                  onButtonClick={() => handleButtonClick({ title: "SOL", image: "/solana.png", description: "Solana description" })}
+            />
           </div>
           <div style={{display: "flex", flexDirection: "row"}}>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
-            <Card image={"/index1.png"} title={"Card1"} description={"card1"} buttonText={"button"}
-                  onButtonClick={() => {
-                  }}/>
+            <Card image={"/xrp.png"} title={"XRP"} description={"Launched in 2012, the XRP Ledger (XRPL) is an open-source, permissionless and decentralized technology. Benefits of the XRP Ledger include its low-cost ($0.0002 to transact), speed (settling transactions in 3-5 seconds), scalability (1,500 transactions per second) and inherently green attributes (carbon-neutral and energy-efficient). The XRP Ledger also features the first decentralized exchange (DEX) and custom tokenization capabilities built into the protocol. Since 2012, the XRP Ledger has been operating reliably, having closed 70 million ledgers."} buttonText={"button"}
+                  onButtonClick={() => handleButtonClick({ title: "XRP", image: "/xrp.png", description: "Xrp description" })}
+            />
+            <Card image={"/doge.png"} title={"DOGE"} description={"Dogecoin (DOGE) is based on the popular \"doge\" Internet meme and features a Shiba Inu on its logo. The open-source digital currency was created by Billy Markus from Portland, Oregon and Jackson Palmer from Sydney, Australia, and was forked from Litecoin in December 2013. Dogecoin's creators envisaged it as a fun, light-hearted cryptocurrency that would have greater appeal beyond the core Bitcoin audience, since it was based on a dog meme. Tesla CEO Elon Musk posted several tweets on social media that Dogecoin is his favorite coin."} buttonText={"button"}
+                  onButtonClick={() => handleButtonClick({ title: "DOGE", image: "/doge.png", description: "Doge description" })}
+            />
+            <Card image={"/cardano.png"} title={"ADA"} description={"Cardano is a proof-of-stake blockchain platform that says its goal is to allow “changemakers, innovators and visionaries” to bring about positive global change.\n" +
+                "\n" +
+                "To learn more about this project, check out our deep dive of Cardano.\n" +
+                "\n" +
+                "The open-source project also aims to “redistribute power from unaccountable structures to the margins to individuals” — helping to create a society that is more secure, transparent and fair."} buttonText={"button"}
+                  onButtonClick={() => handleButtonClick({ title: "ADA", image: "/cardano.png", description: "Cardano description" })}
+            />
           </div>
         </div>
       </Content>

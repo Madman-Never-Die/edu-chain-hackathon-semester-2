@@ -41,7 +41,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   image: {
     width: '100%',
     height: '200px',
-    objectFit: 'cover',
+    objectFit: 'contain',
   },
   title: {
     fontSize: '1.5rem',
